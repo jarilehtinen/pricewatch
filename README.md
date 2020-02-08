@@ -16,7 +16,7 @@ Then run:
 pricewatch build
 ```
 
-It creates the sources.json file containing all the store information.
+It creates the ```stores.json``` file containing all the store information.
 
 ## Usage
 
@@ -46,7 +46,7 @@ pricewatch remove [id]
 - power.fi
 - gigantti.fi
 
-Although you can add more stores to ```sources.php``` and run:
+Although you can add more stores to ```stores.php``` and run:
 
 ```shell
 pricewatch build
