@@ -20,7 +20,6 @@ class PriceWatch
     private $green = "\e[0;32m";
     private $yellow = "\e[0;33m";
     private $cyan = "\e[0;36m";
-    private $gray = "\e[0;37m";
     private $reset_color = "\e[0m";
 
     /**
