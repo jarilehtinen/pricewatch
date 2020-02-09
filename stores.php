@@ -16,4 +16,9 @@ $data = array(
         'name' => 'Power',
         'priceRegExp' => '/<meta property="product:price:amount" content="(.*?)">/is'
     ),
+    array(
+        'id' => 'www.jimms.fi',
+        'name' => 'Jimm\'s',
+        'priceRegExp' => '/<meta property="product:price:amount" content="(.*?)">/is'
+    ),
 );
