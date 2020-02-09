@@ -1,6 +1,8 @@
 # [0.1.0](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.0)
 
 - Changelog is more changelog-y
+- Added support for multiple store price regular expressions
+- Added stores: puolenkuunpelit.com, konsolinet.fi and pelaajashop.fi
 
 # [0.0.9](https://github.com/jarilehtinen/pricewatch/releases/tag/0.0.9)
 

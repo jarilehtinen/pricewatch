@@ -73,9 +73,12 @@ pricewatch help
 - discshop.fi
 - gigantti.fi
 - jimms.fi
+- konsolinet.fi
 - multitronic.fi
+- pelaajashop.fi
 - power.fi
 - proshop.fi
+- puolenkuunpelit.com
 - verkkokauppa.com
 - vpd.fi
 
