@@ -20,3 +20,7 @@
 
 - Forgot to update readme, like always
 - Added store: proshop.fi
+
+**0.0.5**
+
+- Display error if no products found
