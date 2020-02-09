@@ -48,6 +48,10 @@ class Stores
             $id = $store['id'];
 
             // Gather data
+            if (!is_array($store['priceRegExp'])) {
+                $store['priceRegExp'] = array($store['priceRegExp']);
+            }
+
             $this->stores[$id] = (object)[];
             $this->stores[$id]->priceRegExp = $store['priceRegExp'];
             $this->stores[$id]->name = $store['name'];

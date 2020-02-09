@@ -112,22 +112,23 @@ class Parser
      */
     private function getPrice($store_id, $html)
     {
-        $regexp = $this->stores->getStore($store_id)->priceRegExp;
+        $regexp = $this->stores->getStore($store_id)->priceRegExp[0];
 
         if (!$regexp) {
-            echo $this->red."No price tag regular expression set for store ".$store_id.$this->reset_color."\n";
+            echo $this->red."No price tag regular expression(s) set for store ".$store_id.$this->reset_color."\n";
             return false;
         }
 
-        $price = preg_match($regexp, $html, $matches) ? $matches[1] : false;
+        // Go through all store price regexes
+        foreach ($this->stores->getStore($store_id)->priceRegExp as $regex) {
+            $price = preg_match($regex, $html, $matches) ? $matches[1] : false;
 
-        if (!$price) {
-            return false;
+            if ($price) {
+                return $this->cleanPrice($price);
+            }
         }
 
-        $price = $this->cleanPrice($price);
-
-        return $price;
+        return false;
     }
 
     /**
