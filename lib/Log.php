@@ -2,9 +2,18 @@
 
 namespace PriceWatch;
 
+use PriceWatch\Products;
+use PriceWatch\Tools;
+
 class Log
 {
+    private $products;
+    private $tools;
     private $log;
+    private $red = "\e[0;31m";
+    private $green = "\e[0;32m";
+    private $cyan = "\e[0;36m";
+    private $reset_color = "\e[0m";
 
     /**
      * Read log
