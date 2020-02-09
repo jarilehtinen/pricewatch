@@ -5,6 +5,8 @@ namespace PriceWatch;
 class Products
 {
     private $products;
+    private $cyan = "\e[0;36m";
+    private $reset_color = "\e[0m";
 
     /**
      * Get products
@@ -54,5 +56,15 @@ class Products
         unset($products[$i-1]);
         
         return file_put_contents('products.txt', implode("\n", $products)."\n");
+    }
+
+    /**
+     * Show product
+     */
+    public function showProduct($i)
+    {
+        $product = $this->getProduct($i);
+        
+        echo $this->cyan.'URL: '.$this->reset_color.$product."\n";
     }
 }
