@@ -31,4 +31,14 @@ $data = array(
         'name' => 'Proshop',
         'priceRegExp' => '/<span class="site-currency-attention">(.*?)<\/span>/is'
     ),
+    array(
+        'id' => 'www.vpd.fi',
+        'name' => 'VPD',
+        'priceRegExp' => '/<span class="price">(.*?)<\/span>/is'
+    ),
+    array(
+        'id' => 'www.discshop.fi',
+        'name' => 'Discshop',
+        'priceRegExp' => '/<span itemprop="price">(.*?)<\/span>/is'
+    ),
 );
