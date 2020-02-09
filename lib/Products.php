@@ -29,6 +29,15 @@ class Products
     }
 
     /**
+     * Get product
+     */
+    public function getProduct($i)
+    {
+        $products = $this->getProducts();
+        return $products[$i-1];
+    }
+
+    /**
      * Add product
      */
     public function addProduct($url)
