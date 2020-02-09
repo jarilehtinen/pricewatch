@@ -27,4 +27,11 @@
 
 **0.0.6**
 
-- Changed 
+- Experimenting with the way price changes are displayed
+
+**0.0.7**
+
+- Simplified price change notification, it now uses simple arrows
+- Added a way to display logged product prices: ```pricewatch log [id]```
+- Added stores: vpd.fi and discshop.fi
+

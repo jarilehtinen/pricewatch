@@ -38,18 +38,28 @@ pricewatch
 pricewatch remove [id]
 ```
 
-*id* is the list item number when you run ```pricewatch```
+Note: *id* is the list item number in ```pricewatch``` results
+
+**List logged product prices**
+
+```shell
+pricewatch log [id]
+```
+
+Note: *id* is the list item number in ```pricewatch``` results
 
 ## Supported stores
 
+- discshop.fi
 - gigantti.fi
 - jimms.fi
 - multitronic.fi
 - power.fi
 - proshop.fi
 - verkkokauppa.com
+- vpd.fi
 
-Although you can add more stores to ```stores.php``` and run:
+You can add more stores to ```stores.php``` and run:
 
 ```shell
 pricewatch build
