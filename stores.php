@@ -41,4 +41,12 @@ $data = array(
         'name' => 'Discshop',
         'priceRegExp' => '/<span itemprop="price">(.*?)<\/span>/is'
     ),
+    array(
+        'id' => 'www.puolenkuunpelit.com',
+        'name' => 'Puolenkuun Pelit',
+        'priceRegExp' => array(
+            '/<form name="cart_quantity".*?>.*?<b class="commonPriceSpecial"><s>.*?<\/s> &nbsp;&nbsp;(.*?)<\/b>/is',
+            '/<form name="cart_quantity".*?>.*?<b class="commonPrice">(.*?)<\/b>/is'
+        )
+    ),
 );
