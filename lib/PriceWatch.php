@@ -140,8 +140,8 @@ class PriceWatch
             $output = $this->cyan;
             $output .= $this->pricePad($last_price).'€';
             $output .= $this->green.' -> ';
-            $output .= $this->pricePad($price).'€';
-            $output .= $this->green.'  SALE';
+            $output .= $price.'€';
+            $output .= $this->green.'  SALE!';
             $output .= $this->reset_color;
             return $output;
         }
