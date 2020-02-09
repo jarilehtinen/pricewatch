@@ -5,6 +5,7 @@ namespace PriceWatch;
 use PriceWatch\Stores;
 use PriceWatch\Products;
 use PriceWatch\Log;
+use PriceWatch\Tools;
 
 class PriceWatch
 {
@@ -12,6 +13,7 @@ class PriceWatch
     private $products;
     private $parser;
     private $log;
+    private $tools;
     private $data;
     private $longest_store_name_length;
     private $max_title_length = 55;
@@ -31,6 +33,7 @@ class PriceWatch
         $this->stores = new Stores;
         $this->parser = new Parser;
         $this->log = new Log;
+        $this->tools = new Tools;
     }
 
     /**
