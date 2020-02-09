@@ -24,3 +24,7 @@
 **0.0.5**
 
 - Display error if no products found
+
+**0.0.6**
+
+- Changed 
