@@ -30,10 +30,11 @@
 **0.0.7**
 
 - Simplified price change notification, it now uses simple arrows
-- Added a way to display logged product prices: ```pricewatch log [id]```
+- Added a way to display logged product prices: ```pricewatch log <id>```
 - Added stores: vpd.fi and discshop.fi
 
 **0.0.8**
 
 - Product IDs now line up nicely if having more than 9 products
 - Changed product ID list format from [1] to #1
+
