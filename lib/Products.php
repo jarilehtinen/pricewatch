@@ -17,6 +17,7 @@ class Products
 
         $products = file_get_contents('products.txt');
         $products = explode("\n", trim($products));
+        
         return $products;
     }
 
