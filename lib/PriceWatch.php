@@ -106,8 +106,8 @@ class PriceWatch
     {
         $orig_length = strlen($title);
 
-        if ($orig_length > $this->max_title_length) {
-            return substr($title, 0, $this->max_title_length - 3).'...';
+        if ($orig_length >= $this->max_title_length) {
+            return mb_substr($title, 0, $this->max_title_length - 3).'...';
         }
     
         return str_pad($title, $this->max_title_length, ' ');
