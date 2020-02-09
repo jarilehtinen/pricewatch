@@ -99,9 +99,7 @@ class Parser
         $price = trim($price);
         $price = strip_tags($price);
 
-        $price = str_replace('$', '', $price);
-        $price = str_replace('€', '', $price);
-        $price = str_replace('&euro;', '', $price);
+        $price = preg_replace('/[^0-9,.]/', '', $price);
 
         $price = str_replace(',', '.', $price);
         $price = number_format($price, 2, '.', '');
