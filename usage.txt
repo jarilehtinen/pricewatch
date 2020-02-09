@@ -3,7 +3,7 @@ Usage: pricewatch <command>
 where <command> is one of:
     add, build, help, info, log, remove
 
-pricewatch              Get prices for products
+pricewatch              Displays product prices
 pricewatch help         Displays this help text
 pricewatch add <url>    Add product
 pricewatch remove <id>  Remove product
