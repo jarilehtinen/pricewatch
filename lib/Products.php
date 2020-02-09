@@ -13,11 +13,18 @@ class Products
     {
         if (!file_exists('products.txt')) {
             echo "No products found. Add product: pricewatch add [url]\n";
+            exit;
         }
 
-        $products = file_get_contents('products.txt');
-        $products = explode("\n", trim($products));
+        $products = trim(file_get_contents('products.txt'));
+
+        if (!$products) {
+            echo "No products found. Add product: pricewatch add [url]\n";
+            exit;
+        }
         
+        $products = explode("\n", trim($products));
+
         return $products;
     }
 
