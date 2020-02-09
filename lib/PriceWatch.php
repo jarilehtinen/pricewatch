@@ -167,7 +167,7 @@ class PriceWatch
         // Add product
         if ($command == 'add') {
             if (!isset($args[2])) {
-                echo "Usage: pricewatch add [url]\n";
+                echo "Usage: pricewatch add <url>\n";
                 return false;
             }
 
@@ -178,7 +178,7 @@ class PriceWatch
         // Remove product
         if ($command == 'remove') {
             if (!isset($args[2])) {
-                echo "Usage: pricewatch remove [id]\n";
+                echo "Usage: pricewatch remove <id>\n";
                 return false;
             }
 
@@ -206,11 +206,13 @@ class PriceWatch
         // Price log
         if ($command == 'log') {
             if (!isset($args[2])) {
-                echo "Usage: pricewatch log [id]\n";
+                echo "Usage: pricewatch log <id>\n";
                 return false;
             }
 
             $this->log->dipslayPriceLog($args[2]);
+            return true;
+        }
 
         // Help
         if ($command == 'help' || $command == '--help' || $command == '-h') {

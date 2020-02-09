@@ -12,14 +12,14 @@ class Products
     public function getProducts()
     {
         if (!file_exists('products.txt')) {
-            echo "No products found. Add product: pricewatch add [url]\n";
+            echo "No products found. Add product: pricewatch add <url>\n";
             exit;
         }
 
         $products = trim(file_get_contents('products.txt'));
 
         if (!$products) {
-            echo "No products found. Add product: pricewatch add [url]\n";
+            echo "No products found. Add product: pricewatch add <url>\n";
             exit;
         }
         

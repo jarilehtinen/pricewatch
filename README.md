@@ -23,7 +23,7 @@ It creates the ```stores.json``` file containing all the store information.
 **Add product**
 
 ```shell
-pricewatch add [url]
+pricewatch add <url>
 ```
 
 **Get prices**
@@ -35,7 +35,7 @@ pricewatch
 **Remove product**
 
 ```shell
-pricewatch remove [id]
+pricewatch remove <id>
 ```
 
 Note: *id* is the list item number in ```pricewatch``` results
@@ -43,7 +43,7 @@ Note: *id* is the list item number in ```pricewatch``` results
 **List logged product prices**
 
 ```shell
-pricewatch log [id]
+pricewatch log <id>
 ```
 
 Note: *id* is the list item number in ```pricewatch``` results
