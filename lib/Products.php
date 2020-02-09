@@ -36,6 +36,7 @@ class Products
     {
         $products = $this->getProducts();
         unset($products[$i-1]);
-        file_put_contents('products.txt', implode("\n", $products)."\n");
+        
+        return file_put_contents('products.txt', implode("\n", $products)."\n");
     }
 }
