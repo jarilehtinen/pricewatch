@@ -124,10 +124,10 @@ class PriceWatch
         $on_sale = $last_price && $price < $last_price ? true : false;
 
         if ($on_sale) {
-            $output = $this->cyan;
-            $output .= $this->pricePad($price).'€';
-            $output .= $this->green;
-            $output .= ' – On sale! Old price was '.number_format($last_price, 2, ',', '').'€';
+            $output = $this->green;
+            $output .= $this->tools->pricePad($price).'€';
+            $output .= ' ▼ ';
+            $output .= '('.number_format($last_price, 2, ',', '').'€)';
             $output .= $this->reset_color;
             return $output;
         }
@@ -136,16 +136,16 @@ class PriceWatch
         $price_increased = $last_price && $price > $last_price ? true : false;
 
         if ($price_increased) {
-            $output = $this->cyan;
-            $output .= $this->pricePad($price).'€';
-            $output .= $this->red;
-            $output .= ' – Price increased! Old price was '.number_format($last_price, 2, ',', '').'€';
+            $output = $this->red;
+            $output .= $this->tools->pricePad($price).'€';
+            $output .= ' ▲ ';
+            $output .= '('.number_format($last_price, 2, ',', '').'€)';
             $output .= $this->reset_color;
             return $output;
         }
 
         $output = $this->cyan;
-        $output .= $this->pricePad($price).'€';
+        $output .= $this->tools->pricePad($price).'€';
         $output .= $this->reset_color;
 
         return $output;
