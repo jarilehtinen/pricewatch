@@ -49,4 +49,14 @@ $data = array(
             '/<form name="cart_quantity".*?>.*?<b class="commonPrice">(.*?)<\/b>/is'
         )
     ),
+    array(
+        'id' => 'www.konsolinet.fi',
+        'name' => 'Konsolinet',
+        'priceRegExp' => '/<dd class="Price">(.*?)<\/dd>/is'
+    ),
+    array(
+        'id' => 'www.pelaajashop.fi',
+        'name' => 'Pelaaja Shop',
+        'priceRegExp' => '/<dd class="Price">(.*?)<\/dd>/is'
+    ),
 );
