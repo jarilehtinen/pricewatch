@@ -12,7 +12,7 @@ class Stores
      */
     public function getStoreIdFromURL($url)
     {
-        $id = str_replace('https://', '', $url);
+        $id = str_replace(array('https://', 'http://'), '', $url);
         $id = explode('/', $id);
         return $id[0];
     }
