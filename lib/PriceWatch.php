@@ -186,6 +186,17 @@ class PriceWatch
             return true;
         }
 
+        // Product info
+        if ($command == 'info') {
+            if (!isset($args[2])) {
+                echo "Usage: pricewatch info <id>\n";
+                return false;
+            }
+
+            $this->products->showProduct($args[2]);
+            return true;
+        }
+
         // Build stores
         if ($command == 'build') {
             $this->stores->buildStores();
