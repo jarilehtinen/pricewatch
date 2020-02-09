@@ -143,7 +143,9 @@ class Parser
             return false;
         }
 
-        return end($log[$url]);
+        $last_log_entry = end($log[$url]);
+
+        return $last_log_entry['price'];
     }
 
     /**
