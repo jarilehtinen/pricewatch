@@ -11,6 +11,10 @@ class Products
      */
     public function getProducts()
     {
+        if (!file_exists('products.txt')) {
+            echo "No products found. Add product: pricewatch add [url]\n";
+        }
+
         $products = file_get_contents('products.txt');
         $products = explode("\n", trim($products));
         return $products;

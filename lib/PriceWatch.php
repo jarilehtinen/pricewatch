@@ -160,12 +160,22 @@ class PriceWatch
 
         // Add product
         if ($command == 'add') {
+            if (!isset($args[2])) {
+                echo "Usage: pricewatch add [url]\n";
+                return false;
+            }
+
             $this->products->addProduct($args[2]);
             return true;
         }
 
         // Remove product
         if ($command == 'remove') {
+            if (!isset($args[2])) {
+                echo "Usage: pricewatch remove [id]\n";
+                return false;
+            }
+
             $this->products->removeProduct($args[2]);
             return true;
         }

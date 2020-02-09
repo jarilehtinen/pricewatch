@@ -24,7 +24,7 @@ class Stores
     private function readStores()
     {
         if (!file_exists('stores.json')) {
-            echo 'No stores.json found. Did you run "pricewatch build"?';
+            echo "No stores.json found. Did you run 'pricewatch build'?\n";
             exit;
         }
 
@@ -75,6 +75,6 @@ class Stores
     public function buildStores()
     {
         require_once('stores.php');
-        file_put_contents('stores.json', json_encode($data));
+        return file_put_contents('stores.json', json_encode($data));
     }
 }
