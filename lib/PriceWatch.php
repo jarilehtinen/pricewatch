@@ -185,5 +185,15 @@ class PriceWatch
             $this->stores->buildStores();
             return true;
         }
+
+        // Price log
+        if ($command == 'log') {
+            if (!isset($args[2])) {
+                echo "Usage: pricewatch log [id]\n";
+                return false;
+            }
+
+            $this->log->dipslayPriceLog($args[2]);
+        }
     }
 }
