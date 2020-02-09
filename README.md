@@ -42,11 +42,12 @@ pricewatch remove [id]
 
 ## Supported stores
 
-- verkkokauppa.com
-- power.fi
 - gigantti.fi
-- multitronic.fi
 - jimms.fi
+- multitronic.fi
+- power.fi
+- proshop.fi
+- verkkokauppa.com
 
 Although you can add more stores to ```stores.php``` and run:
 
