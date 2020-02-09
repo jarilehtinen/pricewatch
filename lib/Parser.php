@@ -72,6 +72,12 @@ class Parser
         // Get title
         $title = preg_match('/<title[^>]*>(.*?)<\/title>/ism', $html, $matches) ? $matches[1] : false;
 
+        if (!$title) {
+            return false;
+        }
+
+        $title = html_entity_decode($title);
+
         // Remove useless stuff from title (hoping the product name comes first)
         $title = explode(' – ', $title);
         $title = $title[0];
@@ -79,7 +85,28 @@ class Parser
         $title = explode(' - ', $title);
         $title = $title[0];
 
+        $title = explode(' | ', $title);
+        $title = $title[0];
+
         return trim(html_entity_decode($title));
+    }
+
+    /**
+     * Clean price
+     */
+    private function cleanPrice($price)
+    {
+        $price = trim($price);
+        $price = strip_tags($price);
+
+        $price = str_replace('$', '', $price);
+        $price = str_replace('€', '', $price);
+        $price = str_replace('&euro;', '', $price);
+
+        $price = str_replace(',', '.', $price);
+        $price = number_format($price, 2, '.', '');
+
+        return $price;
     }
 
     /**
@@ -100,8 +127,7 @@ class Parser
             return false;
         }
 
-        $price = str_replace(',', '.', $price);
-        $price = number_format($price, 2, '.', '');
+        $price = $this->cleanPrice($price);
 
         return $price;
     }
