@@ -23,14 +23,17 @@ class Log
 
         $log = explode("\n", trim($log));
         
-        foreach ($log as $line) {
-            $line = explode('##', $line);
+        foreach ($log as $entry) {
+            $entry = explode('##', $entry);
 
-            $date = $line[0];
-            $url = $line[1];
-            $price = $line[2];
+            $date = $entry[0];
+            $url = $entry[1];
+            $price = $entry[2];
 
-            $this->log[$url][] = $price;
+            $this->log[$url][] = array(
+                'date' => $date,
+                'price' => $price
+            );
         }
 
         return $this->log;
