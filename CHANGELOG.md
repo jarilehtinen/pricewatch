@@ -38,4 +38,8 @@
 - Product IDs now line up nicely if having more than 9 products
 - Changed product ID list format from [1] to #1
 - Added command for displaying product info: ```pricewatch info <id>```
-- Added help which can be viewed with ```pricewatch help``` (or ```-help``` or even ```-h```)
+- Added help which can be viewed with ```pricewatch help``` (or ```--help``` or even ```-h```)
+
+**0.0.9**
+
+- Keeping up with changes is hard. Readme is now up to date. These might not need their own version number, but hey.

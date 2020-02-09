@@ -28,7 +28,7 @@ pricewatch add <url>
 
 **Get prices**
 
-```shell
+```powershell
 pricewatch
 ```
 
@@ -40,6 +40,14 @@ pricewatch remove <id>
 
 Note: *id* is the list item number in ```pricewatch``` results
 
+**Display product info**
+
+```shell
+pricewatch info <id>
+```
+
+Note: *id* is the list item number in ```pricewatch``` results
+
 **List logged product prices**
 
 ```shell
@@ -47,6 +55,18 @@ pricewatch log <id>
 ```
 
 Note: *id* is the list item number in ```pricewatch``` results
+
+**Build store information**
+
+```shell
+pricewatch build
+```
+
+**Getting help in terminal**
+
+```shell
+pricewatch help
+```
 
 ## Supported stores
 
