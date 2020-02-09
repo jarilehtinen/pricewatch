@@ -15,3 +15,8 @@
 - Improved error messages
 - Improved product title shortener
 - Added this changelog
+
+**0.0.4**
+
+- Forgot to update readme, like always
+- Added store: proshop.fi
