@@ -1,6 +1,6 @@
 # PriceWatch
 
-Simple command-line tool to get prices for the products you want to buy. It logs the prices and tells you if it's on sale.
+Simple command-line tool to get prices for the products you want to buy. It keeps a log of the prices and tells you if a product is on sale.
 
 ## Installation
 
