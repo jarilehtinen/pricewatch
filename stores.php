@@ -26,4 +26,9 @@ $data = array(
         'name' => 'Multitronic',
         'priceRegExp' => '/<span id="vat" style="">(.*?)<\/span><\/span>/is'
     ),
+    array(
+        'id' => 'www.proshop.fi',
+        'name' => 'Proshop',
+        'priceRegExp' => '/<span class="site-currency-attention">(.*?)<\/span>/is'
+    ),
 );
