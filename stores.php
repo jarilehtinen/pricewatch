@@ -21,4 +21,9 @@ $data = array(
         'name' => 'Jimm\'s',
         'priceRegExp' => '/<meta property="product:price:amount" content="(.*?)">/is'
     ),
+    array(
+        'id' => 'www.multitronic.fi',
+        'name' => 'Multitronic',
+        'priceRegExp' => '/<span id="vat" style="">(.*?)<\/span><\/span>/is'
+    ),
 );
