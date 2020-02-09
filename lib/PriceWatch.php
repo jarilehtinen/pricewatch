@@ -46,6 +46,7 @@ class PriceWatch
 
         // Display products
         $products = $this->products->getProducts();
+        $total_products = count($products);
 
         foreach ($products as $i => $url) {
             // Get URL data
@@ -53,7 +54,7 @@ class PriceWatch
 
             if ($data) {
                 // Product ID
-                echo $this->displayProductId($i).' ';
+                echo $this->displayProductId($i, $total_products).'  ';
 
                 // Store name
                 echo $this->displayStoreName($data->name).'  ';
@@ -78,9 +79,14 @@ class PriceWatch
     /**
      * Display product ID
      */
-    private function displayProductId($i)
+    private function displayProductId($i, $total_products)
     {
-        return $this->yellow.'['.($i+1).']'.$this->reset_color;
+        $max_i_length = strlen($total_products) + 1;
+        
+        $i = '#'.($i+1);
+        $i = str_pad($i, $max_i_length, ' ', STR_PAD_LEFT);
+
+        return $this->yellow.$i.$this->reset_color;
     }
 
     /**
