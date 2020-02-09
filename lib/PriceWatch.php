@@ -200,6 +200,12 @@ class PriceWatch
             }
 
             $this->log->dipslayPriceLog($args[2]);
+
+        // Help
+        if ($command == 'help' || $command == '--help' || $command == '-h') {
+            $help = file_get_contents('usage.txt');
+            echo $help."\n";
+            return true;
         }
     }
 }
