@@ -90,7 +90,7 @@ class Parser
         $regexp = $this->stores->getStore($store_id)->priceRegExp;
 
         if (!$regexp) {
-            echo $this->red."No price tag regular expression set for store ".$id.$this->reset_color."\n";
+            echo $this->red."No price tag regular expression set for store ".$store_id.$this->reset_color."\n";
             return false;
         }
 
