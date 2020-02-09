@@ -14,8 +14,7 @@ class Stores
     {
         $id = str_replace('https://', '', $url);
         $id = explode('/', $id);
-        $id = $id[0];
-        return $id;
+        return $id[0];
     }
 
     /**
