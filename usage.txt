@@ -1,13 +1,14 @@
 Usage: pricewatch <command>
 
 where <command> is one of:
-    add, build, help, info, log, stores, remove
+    add, build, help, info, log, products, stores, remove
 
 pricewatch                  Displays product prices
-pricewatch help             Displays this help text
 pricewatch add <url>        Add product
-pricewatch remove <id|url>  Remove product by product ID or URL
+pricewatch build            Builds store information (stores.json)
+pricewatch help             Displays this help text
 pricewatch info <id>        Display product info
 pricewatch log <id>         Display log for product
+pricewatch products         Displays added products
+pricewatch remove <id|url>  Remove product by product ID or URL
 pricewatch stores           Displays supported stores
-pricewatch build            Builds store information (stores.json)

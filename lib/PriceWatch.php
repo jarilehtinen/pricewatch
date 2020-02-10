@@ -220,6 +220,12 @@ class PriceWatch
             return true;
         }
 
+        // Display products
+        if ($command == 'products') {
+            $this->products->displayProducts();
+            return true;
+        }
+
         // Product info
         if ($command == 'info') {
             if (!isset($args[2])) {
