@@ -3,13 +3,11 @@
 namespace PriceWatch;
 
 use PriceWatch\Products;
-use PriceWatch\Tools;
 use PriceWatch\Display;
 
 class Log
 {
     private $products;
-    private $tools;
     private $display;
     private $log;
     private $red = "\e[1;31m";

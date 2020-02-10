@@ -7,7 +7,6 @@ use PriceWatch\Display;
 use PriceWatch\Parser;
 use PriceWatch\Products;
 use PriceWatch\Log;
-use PriceWatch\Tools;
 
 class PriceWatch
 {
@@ -15,7 +14,6 @@ class PriceWatch
     private $products;
     private $parser;
     private $log;
-    private $tools;
     private $data;
     private $longest_store_name_length;
     private $max_title_length = 55;
@@ -40,7 +38,6 @@ class PriceWatch
         $this->parser = new Parser;
         $this->display = new Display;
         $this->log = new Log;
-        $this->tools = new Tools;
     }
 
     /**

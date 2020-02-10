@@ -8,7 +8,6 @@ require_once('lib/Products.php');
 require_once('lib/Parser.php');
 require_once('lib/Display.php');
 require_once('lib/Log.php');
-require_once('lib/Tools.php');
 
 $priceWatch = new PriceWatch\PriceWatch;
 
