@@ -6,6 +6,9 @@ class Tools
 {
     /**
      * Price pad
+     *
+     * @param  double $price
+     * @return string
      */
     public function pricePad($price)
     {

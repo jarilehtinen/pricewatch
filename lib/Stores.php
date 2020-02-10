@@ -9,6 +9,9 @@ class Stores
 
     /**
      * Get store ID
+     *
+     * @param  string $url Product URL
+     * @return string
      */
     public function getStoreIdFromURL($url)
     {
@@ -19,6 +22,8 @@ class Stores
 
     /**
      * Read stores
+     *
+     * @return array
      */
     private function readStores()
     {
@@ -34,6 +39,8 @@ class Stores
 
     /**
      * Get stores
+     *
+     * @return object
      */
     public function getStores()
     {
@@ -62,6 +69,9 @@ class Stores
 
     /**
      * Get store
+     *
+     * @param  string $store_id Store ID
+     * @return object
      */
     public function getStore($id)
     {
@@ -74,6 +84,8 @@ class Stores
 
     /**
      * Build stores
+     *
+     * @return boolean
      */
     public function buildStores()
     {

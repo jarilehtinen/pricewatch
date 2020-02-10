@@ -78,6 +78,9 @@ class PriceWatch
 
     /**
      * Display product ID
+     *
+     * @param integer $i              Product ID
+     * @param integer $total_products Number of total products
      */
     private function displayProductId($i, $total_products)
     {
@@ -91,6 +94,9 @@ class PriceWatch
 
     /**
      * Display store name
+     *
+     * @param  string $name Store name
+     * @return string
      */
     private function displayStoreName($name)
     {
@@ -109,6 +115,9 @@ class PriceWatch
 
     /**
      * Display product title
+     *
+     * @param  string $title Product title
+     * @return string
      */
     private function displayProductTitle($title)
     {
@@ -123,6 +132,10 @@ class PriceWatch
 
     /**
      * Display price
+     *
+     * @param  double $price      Price
+     * @param  mixed  $last_price Last price
+     * @return string
      */
     private function displayPrice($price, $last_price = false)
     {
@@ -159,6 +172,9 @@ class PriceWatch
 
     /**
      * Run command
+     *
+     * @param  array   $args Arguments
+     * @return boolean
      */
     public function runCommand($args)
     {

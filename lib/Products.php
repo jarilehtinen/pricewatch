@@ -10,6 +10,8 @@ class Products
 
     /**
      * Get products
+     *
+     * @return array
      */
     public function getProducts()
     {
@@ -32,6 +34,9 @@ class Products
 
     /**
      * Get product
+     *
+     * @param  integer $i Product ID
+     * @return string
      */
     public function getProduct($i)
     {
@@ -41,6 +46,9 @@ class Products
 
     /**
      * Add product
+     *
+     * @param  string  $url URL
+     * @return boolean
      */
     public function addProduct($url)
     {
@@ -49,6 +57,9 @@ class Products
 
     /**
      * Remove product
+     *
+     * @param  integer $i Product ID
+     * @return boolean
      */
     public function removeProduct($i)
     {
@@ -60,6 +71,8 @@ class Products
 
     /**
      * Show product
+     *
+     * @param integer $i Product ID
      */
     public function showProduct($i)
     {

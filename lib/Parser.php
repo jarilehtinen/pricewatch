@@ -24,9 +24,12 @@ class Parser
 
     /**
      * Get data
+     *
+     * @param string $url Product URL
      */
     public function getData($url)
     {
+        // Get stores
         $this->stores->getStores();
 
         // Get store ID
@@ -52,10 +55,15 @@ class Parser
 
     /**
      * Get HTML
+     *
+     * @param   string  $url  Product URL
+     * @return  string
      */
     private function getHTML($url)
     {
         $data = file_get_contents($url);
+
+        // Sanitize HTML for better regex compatibility
         $data = str_replace("\r", '', $data);
         $data = str_replace("\n", '', $data);
         $data = str_replace("\t", '', $data);
@@ -66,6 +74,9 @@ class Parser
 
     /**
      * Get title
+     *
+     * @param string $html HTML
+     * @
      */
     private function getTitle($html)
     {
@@ -93,6 +104,9 @@ class Parser
 
     /**
      * Clean price
+     *
+     * @param  string $price Price
+     * @return double
      */
     private function cleanPrice($price)
     {
@@ -109,6 +123,10 @@ class Parser
 
     /**
      * Get price
+     *
+     * @param  string $store_id Store ID
+     * @param  string $html     HTML
+     * @return mixed
      */
     private function getPrice($store_id, $html)
     {
@@ -133,6 +151,9 @@ class Parser
 
     /**
      * Get last price
+     *
+     * @param  string $url Product URL
+     * @return double
      */
     private function getLastPrice($url)
     {
@@ -149,6 +170,8 @@ class Parser
 
     /**
      * Longest store name length
+     *
+     * @return integer
      */
     public function longestStoreNameLength()
     {

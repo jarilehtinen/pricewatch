@@ -17,6 +17,8 @@ class Log
 
     /**
      * Read log
+     *
+     * @return array
      */
     public function readLog()
     {
@@ -50,21 +52,30 @@ class Log
 
     /**
      * Log price
+     *
+     * @param  string  $url   Product URL
+     * @param  string  $title Product title
+     * @param  double  $price Product price
+     * @return boolean
      */
     public function logPrice($url, $title, $price)
     {
         $data = date('Y-m-d H:i:s').'##'.$url.'##'.$price."\n";
-        file_put_contents('log.txt', $data, FILE_APPEND);
+        return file_put_contents('log.txt', $data, FILE_APPEND);
     }
 
     /**
      * Display price log
+     *
+     * @param  integer $product_id Product ID
+     * @return null
      */
     public function dipslayPriceLog($product_id)
     {
         $this->products = new Products;
         $this->tools = new Tools;
 
+        // Get products
         $products = $this->products->getProducts();
 
         if (!$products) {
@@ -77,8 +88,10 @@ class Log
             exit;
         }
 
+        // Product URL
         $url = $products[$product_id-1];
 
+        // Get log entries
         $log = $this->readLog();
         $last_price = false;
 
@@ -87,8 +100,10 @@ class Log
                 $price_increased = $last_price && $entry['price'] > $last_price;
                 $price_decreased = $last_price && $entry['price'] < $last_price;
 
+                // Date
                 echo date('d.m.Y H:i', strtotime($entry['date'])).' ';
 
+                // Price change indicator colors
                 if ($price_increased) {
                     echo $this->red;
                 } elseif ($price_decreased) {
@@ -97,8 +112,10 @@ class Log
                     echo $this->cyan;
                 }
 
+                // Price
                 echo $this->tools->pricePad($entry['price']).'€';
 
+                // Up/down arrows
                 if ($price_increased) {
                     echo ' ▲';
                 } elseif ($price_decreased) {
