@@ -6,7 +6,7 @@ class Products
 {
     private $products;
     private $cyan = "\e[0;36m";
-    private $reset_color = "\e[0m";
+    private $reset = "\e[0m";
 
     /**
      * Get products
@@ -78,6 +78,6 @@ class Products
     {
         $product = $this->getProduct($i);
         
-        echo $this->cyan.'URL: '.$this->reset_color.$product."\n";
+        echo $this->cyan.'URL: '.$this->reset.$product."\n";
     }
 }
