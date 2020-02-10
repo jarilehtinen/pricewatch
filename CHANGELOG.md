@@ -1,3 +1,8 @@
+# [0.1.1](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.1)
+
+- Use bold fonts when displaying sale or increased price
+- Display error if store not set
+
 # [0.1.0](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.0)
 
 - Changelog is more changelog-y
