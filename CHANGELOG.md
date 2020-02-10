@@ -1,3 +1,7 @@
+# [0.1.2](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.2)
+
+- Fixed errors when running pricewatch outside of main directory
+
 # [0.1.1](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.1)
 
 - Use bold fonts when displaying sale or increased price
