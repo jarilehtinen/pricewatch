@@ -113,7 +113,7 @@ class Log
                 }
 
                 // Price
-                echo $this->tools->pricePad($entry['price']).'€';
+                echo $this->display->pricePad($entry['price']).'€';
 
                 // Up/down arrows
                 if ($price_increased) {
