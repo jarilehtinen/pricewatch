@@ -1,3 +1,8 @@
+# [0.1.4](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.4)
+
+- Added command for displaying stores ```pricewatch stores````
+- Added command for displaying products ```pricewatch products```
+
 # [0.1.3](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.3)
 
 - Fixed error when displaying help outside of main directory
