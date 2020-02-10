@@ -56,41 +56,38 @@ class PriceWatch
         $total_products = count($products);
 
         foreach ($products as $i => $url) {
-            // Get store
-            $store_id = $this->stores->getStoreIdFromURL($url);
-            $store = $this->stores->getStore($store_id);
+            // Get data
+            $data = $this->parser->getData($url);
 
-            if ($store) {
-                // Get URL data
-                $data = $this->parser->getData($url);
-
-                // Product ID
-                echo $this->displayProductId($i, $total_products).'  ';
-
-                if ($data) {
-                    // Store name
-                    echo $this->displayStoreName($data->name).'  ';
-
-                    // Product
-                    echo $this->displayProductTitle($data->title).'  ';
-
-                    // Last price
-                    if ($data->price) {
-                        echo $this->displayPrice($data->price, $data->lastPrice);
-                    }
-
-                    echo "\n";
-
-                    $this->log->logPrice($url, $data->title, $data->price);
-                } else {
-                    // Could not get data for URL
-                    echo $this->red.'Could not get data for '.$url.$this->reset."\n";
-                }
-            } else {
-                // Store not set
+            // Store not configured
+            if (!$data->store) {
+                $store_id = $this->stores->getStoreIdFromUrl($url);
                 echo $this->displayProductId($i, $total_products).'  ';
                 echo $this->red.'Warning: store '.$store_id.' not set in stores.json '.$this->reset."\n";
+                continue;
             }
+
+            if (!$data->product) {
+                // Could not get product data for URL
+                echo $this->red.'Could not get product data for '.$url.$this->reset."\n";
+                continue;
+            }
+
+            // Product ID
+            echo $this->displayProductId($i, $total_products).'  ';
+
+            // Store name
+            echo $this->displayStoreName($data).'  ';
+
+            // Product
+            echo $this->displayProductTitle($data).'  ';
+
+            // Last price
+            echo $this->displayPrice($data);
+
+            echo "\n";
+
+            $this->log->logPrice($url, $data->product->title, $data->product->price);
         }
     }
 
@@ -113,19 +110,19 @@ class PriceWatch
     /**
      * Display store name
      *
-     * @param  string $name Store name
+     * @param  object $data Product data
      * @return string
      */
-    private function displayStoreName($name)
+    private function displayStoreName($data)
     {
         $output = $this->cyan;
         
-        if (!$name) {
+        if (!$data->store->name) {
             $name = '(store not set)';
         }
 
         $output .= str_pad(
-            $name,
+            $data->store->name,
             $this->longest_store_name_length,
             ' '
         );
@@ -138,55 +135,54 @@ class PriceWatch
     /**
      * Display product title
      *
-     * @param  string $title Product title
+     * @param  object $data Product data
      * @return string
      */
-    private function displayProductTitle($title)
+    private function displayProductTitle($data)
     {
-        $orig_length = strlen($title);
+        $orig_length = strlen($data->product->title);
 
         if ($orig_length >= $this->max_title_length) {
-            return mb_substr($title, 0, $this->max_title_length - 3).'...';
+            return mb_substr($data->product->title, 0, $this->max_title_length - 3).'...';
         }
     
-        return str_pad($title, $this->max_title_length, ' ');
+        return str_pad($data->product->title, $this->max_title_length, ' ');
     }
 
     /**
      * Display price
      *
-     * @param  double $price      Price
-     * @param  mixed  $last_price Last price
+     * @param  object $data Product data
      * @return string
      */
-    private function displayPrice($price, $last_price = false)
+    private function displayPrice($data)
     {
-        // Is it on sale?
-        $on_sale = $last_price && $price < $last_price ? true : false;
+        if (!$data->product->price) {
+            return false;
+        }
 
-        if ($on_sale) {
+        // Price decreased
+        if ($data->product->priceDecreased) {
             $output = $this->green_bold;
-            $output .= $this->tools->pricePad($price).'€';
+            $output .= $this->tools->pricePad($data->product->price).'€';
             $output .= ' ▼ ';
-            $output .= '('.number_format($last_price, 2, ',', '').'€)';
+            $output .= '('.number_format($data->product->lastPrice, 2, ',', '').'€)';
             $output .= $this->reset;
             return $output;
         }
 
-        // Price increased?
-        $price_increased = $last_price && $price > $last_price ? true : false;
-
-        if ($price_increased) {
+        // Price increased
+        if ($data->product->priceIncreased) {
             $output = $this->red_bold;
-            $output .= $this->tools->pricePad($price).'€';
+            $output .= $this->tools->pricePad($data->product->price).'€';
             $output .= ' ▲ ';
-            $output .= '('.number_format($last_price, 2, ',', '').'€)';
+            $output .= '('.number_format($data->product->lastPrice, 2, ',', '').'€)';
             $output .= $this->reset;
             return $output;
         }
 
         $output = $this->cyan;
-        $output .= $this->tools->pricePad($price).'€';
+        $output .= $this->tools->pricePad($data->product->price).'€';
         $output .= $this->reset;
 
         return $output;

@@ -29,34 +29,81 @@ class Parser
      */
     public function getData($url)
     {
-        // Get stores
-        $this->stores->getStores();
-
-        // Get store ID
-        $store_id = $this->stores->getStoreIdFromURL($url);
-
-        // Get HTML
-        $html = $this->getHTML($url);
-
-        if (!$html) {
-            return false;
-        }
+        // Get store
+        $store = $this->stores->getStoreByProductUrl($url);
 
         // Gather data
         $data = (object)[];
-        $data->html = $html;
-        $data->name = $this->stores->getStore($store_id)->name;
-        $data->title = $this->getTitle($html);
-        $data->price = $this->getPrice($store_id, $html);
-        $data->lastPrice = $this->getLastPrice($url);
+        $data->url = $url;
+        $data->html = $this->getHTML($url);
 
-        $price_increased = $data->price && $data->lastPrice && $data->lastPrice > $data->price ? true : false;
-        $data->priceIncreased = $price_increased;
+        // Store
+        $data->store = (object)[];
+        $data->store = $this->stores->getStoreByProductUrl($url);
 
-        $price_decreased = $data->price && $data->lastPrice && $data->lastPrice < $data->price ? true : false;
-        $data->priceDecreased = $price_decreased;
+        // Product
+        if ($data->html) {
+            $data->product = (object)[];
+            $data->product->title = $this->getTitle($data->html);
+            $data->product->price = $this->getPrice($data->store->id, $data->html);
+            $data->product->lastPrice = $this->getLastPrice($url);
+
+            $price_increased = $this->priceIncreased($data->product->price, $data->product->lastPrice) ? true : false;
+            $data->product->priceIncreased = $price_increased;
+
+            $price_decreased = $this->priceDecreased($data->product->price, $data->product->lastPrice) ? true : false;
+            $data->product->priceDecreased = $price_decreased;
+        }
 
         return $data;
+    }
+
+    /**
+     * Price increased
+     *
+     * @param  double $price      Price
+     * @param  double $last_price Last price
+     * @return boolean
+     */
+    private function priceIncreased($price = false, $last_price = false)
+    {
+        if (!$price) {
+            return false;
+        }
+
+        if (!$last_price) {
+            return false;
+        }
+
+        if ($last_price > $price) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Price decreased
+     *
+     * @param  double $price      Price
+     * @param  double $last_price Last price
+     * @return boolean
+     */
+    private function priceDecreased($price = false, $last_price = false)
+    {
+        if (!$price) {
+            return false;
+        }
+
+        if (!$last_price) {
+            return false;
+        }
+
+        if ($last_price < $price) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
