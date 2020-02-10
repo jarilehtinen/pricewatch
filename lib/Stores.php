@@ -83,6 +83,20 @@ class Stores
     }
 
     /**
+     * Get store by product URL
+     *
+     * @param  string $url Product URL
+     * @return array
+     */
+    public function getStoreByProductUrl($url)
+    {
+        // Get store ID
+        $store_id = $this->getStoreIdFromUrl($url);
+
+        return $this->getStore($store_id);
+    }
+
+    /**
      * Build stores
      *
      * @return boolean
