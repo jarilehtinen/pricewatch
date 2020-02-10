@@ -93,7 +93,7 @@ class PriceWatch
         $i = '#'.($i+1);
         $i = str_pad($i, $max_i_length, ' ', STR_PAD_LEFT);
 
-        return $this->yellow.$i.$this->reset_color;
+        return $this->yellow.$this->bold.$i.$this->reset;
     }
 
     /**
@@ -112,7 +112,7 @@ class PriceWatch
             ' '
         );
 
-        $output .= $this->reset_color;
+        $output .= $this->reset;
 
         return $output;
     }
@@ -147,11 +147,11 @@ class PriceWatch
         $on_sale = $last_price && $price < $last_price ? true : false;
 
         if ($on_sale) {
-            $output = $this->green;
+            $output = $this->green_bold;
             $output .= $this->tools->pricePad($price).'€';
             $output .= ' ▼ ';
             $output .= '('.number_format($last_price, 2, ',', '').'€)';
-            $output .= $this->reset_color;
+            $output .= $this->reset;
             return $output;
         }
 
@@ -159,17 +159,17 @@ class PriceWatch
         $price_increased = $last_price && $price > $last_price ? true : false;
 
         if ($price_increased) {
-            $output = $this->red;
+            $output = $this->red_bold;
             $output .= $this->tools->pricePad($price).'€';
             $output .= ' ▲ ';
             $output .= '('.number_format($last_price, 2, ',', '').'€)';
-            $output .= $this->reset_color;
+            $output .= $this->reset;
             return $output;
         }
 
         $output = $this->cyan;
         $output .= $this->tools->pricePad($price).'€';
-        $output .= $this->reset_color;
+        $output .= $this->reset;
 
         return $output;
     }
