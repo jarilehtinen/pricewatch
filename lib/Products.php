@@ -4,12 +4,14 @@ namespace PriceWatch;
 
 use PriceWatch\Stores;
 use PriceWatch\Display;
+
 class Products
 {
     private $stores;
     private $display;
     private $products;
     private $cyan = "\e[0;36m";
+    private $yellow = "\e[0;33m";
     private $reset = "\e[0m";
 
     /**
@@ -33,14 +35,22 @@ class Products
             exit;
         }
 
-        $products = trim(file_get_contents(PATH.'/products.txt'));
+        $product_data = trim(file_get_contents(PATH.'/products.txt'));
 
-        if (!$products) {
+        if (!$product_data) {
             echo "No products found. Add product: pricewatch add <url>\n";
             exit;
         }
         
-        $products = explode("\n", trim($products));
+        $product_data = explode("\n", trim($product_data));
+
+        $i = 1;
+        foreach ($product_data as $product) {
+            $products[$i] = (object)[];
+            $products[$i]->id = $i;
+            $products[$i]->url = $product;
+            $i++;
+        }
 
         return $products;
     }
@@ -48,13 +58,18 @@ class Products
     /**
      * Get product
      *
-     * @param  integer $i Product ID
+     * @param  integer $id Product ID
      * @return string
      */
-    public function getProduct($i)
+    public function getProduct($id)
     {
         $products = $this->getProducts();
-        return $products[$i-1];
+
+        if (!isset($products[$id])) {
+            return false;
+        }
+
+        return $products[$id];
     }
 
     /**
@@ -90,13 +105,13 @@ class Products
     {
         $products = $this->getProducts();
 
-        if (!isset($products[$id-1])) {
+        if (!isset($products[$id])) {
             return false;
         }
 
-        unset($products[$id-1]);
-        
-        return file_put_contents(PATH.'/products.txt', implode("\n", $products)."\n");
+        unset($products[$id]);
+
+        return $this->saveProductConfig($products);
     }
 
     /**
@@ -106,25 +121,75 @@ class Products
     {
         $products = $this->getProducts();
 
-        foreach ($products as $i => $product) {
+        foreach ($products as $id => $product) {
             if ($product == trim($url)) {
-                unset($products[$i]);
+                unset($products[$id]);
                 break;
             }
         }
 
-        return file_put_contents(PATH.'/products.txt', implode("\n", $products)."\n");
+        return $this->saveProductConfig($products);
+    }
+
+    /**
+     * Save product config
+     */
+    private function saveProductConfig($products)
+    {
+        // Reset array keys
+        $products = array_values($products);
+
+        $data = [];
+
+        foreach ($products as $product) {
+            $data[] = $product->url;
+        }
+
+        return file_put_contents(PATH.'/products.txt', implode("\n", $data)."\n");
+    }
+
+    /**
+     * Display products
+     */
+    public function displayProducts()
+    {
+        $products = $this->getProducts();
+        
+        if (!$products) {
+            echo "No products found.\n";
+        }
+
+        $total_products = count($products);
+
+        foreach ($products as $product) {
+            $store = $this->stores->getStoreByProductUrl($product->url);
+
+            echo $this->yellow;
+            echo $this->display->displayProductId($product->id, $total_products)."  ";
+
+            echo $this->cyan;
+            echo $this->display->displayStoreName($store->name)."  ";
+            echo $this->reset;
+            echo $product->url;
+            echo "\n";
+        }
+
+        return true;
     }
 
     /**
      * Display product
      *
-     * @param integer $i Product ID
+     * @param integer $id Product ID
      */
-    public function displayProduct($i)
+    public function displayProduct($id)
     {
-        $product = $this->getProduct($i);
+        $product = $this->getProduct($id);
         
-        echo $this->cyan.'URL: '.$this->reset.$product."\n";
+        echo $this->cyan;
+        echo 'URL: ';
+        echo $this->reset;
+        echo $product->url;
+        echo "\n";
     }
 }
