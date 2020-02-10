@@ -6,6 +6,8 @@ class Stores
 {
     private $stores;
     private $longest_name_length = 0;
+    private $cyan = "\e[0;36m";
+    private $reset = "\e[0m";
 
     /**
      * Get store ID
