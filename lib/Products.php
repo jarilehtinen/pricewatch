@@ -58,14 +58,48 @@ class Products
     /**
      * Remove product
      *
-     * @param  integer $i Product ID
+     * @param  mixed   $id Product ID or URL
      * @return boolean
      */
-    public function removeProduct($i)
+    public function removeProduct($id)
+    {
+        if (is_numeric($id)) {
+            return $this->removeProductById($id);
+        }
+      
+        return $this->removeProductByUrl($id);
+    }
+
+    /**
+     * Remove product by ID
+     */
+    public function removeProductById($id)
     {
         $products = $this->getProducts();
-        unset($products[$i-1]);
+
+        if (!isset($products[$id-1])) {
+            return false;
+        }
+
+        unset($products[$id-1]);
         
+        return file_put_contents(PATH.'/products.txt', implode("\n", $products)."\n");
+    }
+
+    /**
+     * Remove product by URL
+     */
+    public function removeProductByUrl($url)
+    {
+        $products = $this->getProducts();
+
+        foreach ($products as $i => $product) {
+            if ($product == trim($url)) {
+                unset($products[$i]);
+                break;
+            }
+        }
+
         return file_put_contents(PATH.'/products.txt', implode("\n", $products)."\n");
     }
 

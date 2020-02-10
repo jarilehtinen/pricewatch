@@ -212,7 +212,7 @@ class PriceWatch
         // Remove product
         if ($command == 'remove') {
             if (!isset($args[2])) {
-                echo "Usage: pricewatch remove <id>\n";
+                echo "Usage: pricewatch remove <id|url>\n";
                 return false;
             }
 
