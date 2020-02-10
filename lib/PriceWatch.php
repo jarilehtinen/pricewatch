@@ -254,7 +254,7 @@ class PriceWatch
 
         // Help
         if ($command == 'help' || $command == '--help' || $command == '-h') {
-            $help = file_get_contents('usage.txt');
+            $help = file_get_contents(PATH.'/usage.txt');
             echo $help."\n";
             return true;
         }
