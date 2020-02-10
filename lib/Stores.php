@@ -89,7 +89,7 @@ class Stores
      */
     public function buildStores()
     {
-        require_once('stores.php');
+        require_once(PATH.'/stores.php');
         return file_put_contents(PATH.'/stores.json', json_encode($data));
     }
 }
