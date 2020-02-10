@@ -78,6 +78,10 @@ class Stores
      */
     public function getStore($id)
     {
+        if (!$this->stores) {
+            $this->getStores();
+        }
+
         if (!isset($this->stores[$id])) {
             return false;
         }
