@@ -3,6 +3,8 @@
 namespace PriceWatch;
 
 use PriceWatch\Stores;
+use PriceWatch\Display;
+use PriceWatch\Parser;
 use PriceWatch\Products;
 use PriceWatch\Log;
 use PriceWatch\Tools;
@@ -36,6 +38,7 @@ class PriceWatch
         $this->products = new Products;
         $this->stores = new Stores;
         $this->parser = new Parser;
+        $this->display = new Display;
         $this->log = new Log;
         $this->tools = new Tools;
     }

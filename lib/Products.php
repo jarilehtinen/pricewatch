@@ -2,11 +2,24 @@
 
 namespace PriceWatch;
 
+use PriceWatch\Stores;
+use PriceWatch\Display;
 class Products
 {
+    private $stores;
+    private $display;
     private $products;
     private $cyan = "\e[0;36m";
     private $reset = "\e[0m";
+
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        $this->stores = new Stores;
+        $this->display = new Display;
+    }
 
     /**
      * Get products

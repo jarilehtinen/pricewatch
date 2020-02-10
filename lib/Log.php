@@ -4,11 +4,13 @@ namespace PriceWatch;
 
 use PriceWatch\Products;
 use PriceWatch\Tools;
+use PriceWatch\Display;
 
 class Log
 {
     private $products;
     private $tools;
+    private $display;
     private $log;
     private $red = "\e[1;31m";
     private $green = "\e[1;32m";
@@ -73,7 +75,7 @@ class Log
     public function dipslayPriceLog($product_id)
     {
         $this->products = new Products;
-        $this->tools = new Tools;
+        $this->display = new Display;
 
         // Get products
         $products = $this->products->getProducts();
@@ -83,13 +85,13 @@ class Log
             exit;
         }
 
-        if (!isset($products[$product_id-1])) {
+        if (!isset($products[$product_id])) {
             echo "No product found with ID ".$product_id."\n";
             exit;
         }
 
         // Product URL
-        $url = $products[$product_id-1];
+        $url = $products[$product_id]->url;
 
         // Get log entries
         $log = $this->readLog();

@@ -2,8 +2,11 @@
 
 namespace PriceWatch;
 
+use PriceWatch\Display;
+
 class Stores
 {
+    private $display;
     private $stores;
     private $longest_name_length = 0;
     private $cyan = "\e[0;36m";
@@ -120,6 +123,7 @@ class Stores
     public function displayStores()
     {
         $stores = $this->getStores();
+        $display = new Display;
 
         if (!$stores) {
             echo "No stores configured.\n";
@@ -127,9 +131,9 @@ class Stores
 
         foreach ($stores as $store) {
             echo $this->cyan;
-            echo $store->name." ";
+            echo $display->displayStoreName($store->name)."  ";
             echo $this->reset;
-            echo "(".str_replace('www.', '', $store->id).")\n";
+            echo str_replace('www.', '', $store->id)."\n";
         }
 
         return true;
