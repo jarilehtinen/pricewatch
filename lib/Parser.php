@@ -220,28 +220,4 @@ class Parser
 
         return $last_log_entry['price'];
     }
-
-    /**
-     * Longest store name length
-     *
-     * @return integer
-     */
-    public function longestStoreNameLength()
-    {
-        $longest_name_length = 0;
-
-        // Get stores
-        $stores = $this->stores->getStores();
-
-        foreach ($stores as $store) {
-            // Calculate store name length
-            $name_length = strlen($store->name);
-
-            if ($name_length > $longest_name_length) {
-                $longest_name_length = $name_length;
-            }
-        }
-
-        return $longest_name_length;
-    }
 }
