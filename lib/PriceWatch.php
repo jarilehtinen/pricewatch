@@ -227,7 +227,7 @@ class PriceWatch
                 return false;
             }
 
-            $this->products->showProduct($args[2]);
+            $this->products->displayProduct($args[2]);
             return true;
         }
 

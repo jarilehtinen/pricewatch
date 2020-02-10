@@ -104,11 +104,11 @@ class Products
     }
 
     /**
-     * Show product
+     * Display product
      *
      * @param integer $i Product ID
      */
-    public function showProduct($i)
+    public function displayProduct($i)
     {
         $product = $this->getProduct($i);
         
