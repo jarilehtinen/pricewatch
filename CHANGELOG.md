@@ -1,3 +1,7 @@
+# [0.1.3](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.3)
+
+- Fixed error when displaying help outside of main directory
+
 # [0.1.2](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.2)
 
 - Fixed errors when running pricewatch outside of main directory
