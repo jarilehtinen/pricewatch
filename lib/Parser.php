@@ -11,7 +11,7 @@ class Parser
     private $log;
     private $data;
     private $red = "\e[0;31m";
-    private $reset_color = "\e[0m";
+    private $reset = "\e[0m";
 
     /**
      * Construct
@@ -133,7 +133,7 @@ class Parser
         $regexp = $this->stores->getStore($store_id)->priceRegExp[0];
 
         if (!$regexp) {
-            echo $this->red."No price tag regular expression(s) set for store ".$store_id.$this->reset_color."\n";
+            echo $this->red."No price tag regular expression(s) set for store ".$store_id.$this->reset."\n";
             return false;
         }
 
