@@ -19,10 +19,14 @@ class PriceWatch
     private $max_title_length = 55;
 
     private $red = "\e[0;31m";
+    private $red_bold = "\e[1;31m";
     private $green = "\e[0;32m";
+    private $green_bold = "\e[1;32m";
     private $yellow = "\e[0;33m";
+    private $yellow_bold = "\e[1;33m";
     private $cyan = "\e[0;36m";
-    private $reset_color = "\e[0m";
+    private $cyan_bold = "\e[1;36m";
+    private $reset = "\e[0m";
 
     /**
      * Construct
