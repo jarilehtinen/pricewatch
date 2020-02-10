@@ -48,34 +48,48 @@ class PriceWatch
         // Get products
         $this->longest_store_name_length = $this->parser->longestStoreNameLength();
 
+        // Get stores
+        $stores = $this->stores->getStores();
+
         // Display products
         $products = $this->products->getProducts();
         $total_products = count($products);
 
         foreach ($products as $i => $url) {
-            // Get URL data
-            $data = $this->parser->getData($url);
+            // Get store
+            $store_id = $this->stores->getStoreIdFromURL($url);
+            $store = $this->stores->getStore($store_id);
 
-            if ($data) {
+            if ($store) {
+                // Get URL data
+                $data = $this->parser->getData($url);
+
                 // Product ID
                 echo $this->displayProductId($i, $total_products).'  ';
 
-                // Store name
-                echo $this->displayStoreName($data->name).'  ';
+                if ($data) {
+                    // Store name
+                    echo $this->displayStoreName($data->name).'  ';
 
-                // Product
-                echo $this->displayProductTitle($data->title).'  ';
+                    // Product
+                    echo $this->displayProductTitle($data->title).'  ';
 
-                // Last price
-                if ($data->price) {
-                    echo $this->displayPrice($data->price, $data->lastPrice);
+                    // Last price
+                    if ($data->price) {
+                        echo $this->displayPrice($data->price, $data->lastPrice);
+                    }
+
+                    echo "\n";
+
+                    $this->log->logPrice($url, $data->title, $data->price);
+                } else {
+                    // Could not get data for URL
+                    echo $this->red.'Could not get data for '.$url.$this->reset."\n";
                 }
-
-                echo "\n";
-
-                $this->log->logPrice($url, $data->title, $data->price);
             } else {
-                echo $this->red.'Could not get data for '.$url.$this->reset_color."\n";
+                // Store not set
+                echo $this->displayProductId($i, $total_products).'  ';
+                echo $this->red.'Warning: store '.$store_id.' not set in stores.json '.$this->reset."\n";
             }
         }
     }
@@ -106,6 +120,10 @@ class PriceWatch
     {
         $output = $this->cyan;
         
+        if (!$name) {
+            $name = '(store not set)';
+        }
+
         $output .= str_pad(
             $name,
             $this->longest_store_name_length,
