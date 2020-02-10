@@ -27,12 +27,12 @@ class Stores
      */
     private function readStores()
     {
-        if (!file_exists('stores.json')) {
+        if (!file_exists(PATH.'/stores.json')) {
             echo "No stores.json found. Did you run 'pricewatch build'?\n";
             exit;
         }
 
-        $stores = file_get_contents('stores.json');
+        $stores = file_get_contents(PATH.'/stores.json');
         $stores = json_decode($stores, true);
         return $stores;
     }
@@ -90,6 +90,6 @@ class Stores
     public function buildStores()
     {
         require_once('stores.php');
-        return file_put_contents('stores.json', json_encode($data));
+        return file_put_contents(PATH.'/stores.json', json_encode($data));
     }
 }

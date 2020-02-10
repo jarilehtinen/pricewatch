@@ -15,12 +15,12 @@ class Products
      */
     public function getProducts()
     {
-        if (!file_exists('products.txt')) {
+        if (!file_exists(PATH.'/products.txt')) {
             echo "No products found. Add product: pricewatch add <url>\n";
             exit;
         }
 
-        $products = trim(file_get_contents('products.txt'));
+        $products = trim(file_get_contents(PATH.'/products.txt'));
 
         if (!$products) {
             echo "No products found. Add product: pricewatch add <url>\n";
@@ -52,7 +52,7 @@ class Products
      */
     public function addProduct($url)
     {
-        return file_put_contents('products.txt', $url."\n", FILE_APPEND);
+        return file_put_contents(PATH.'/products.txt', $url."\n", FILE_APPEND);
     }
 
     /**
@@ -66,7 +66,7 @@ class Products
         $products = $this->getProducts();
         unset($products[$i-1]);
         
-        return file_put_contents('products.txt', implode("\n", $products)."\n");
+        return file_put_contents(PATH.'/products.txt', implode("\n", $products)."\n");
     }
 
     /**

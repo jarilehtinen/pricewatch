@@ -26,7 +26,7 @@ class Log
             return $this->log;
         }
 
-        $log = trim(file_get_contents('log.txt'));
+        $log = trim(file_get_contents(PATH.'/log.txt'));
 
         if (!$log) {
             return false;
@@ -61,7 +61,7 @@ class Log
     public function logPrice($url, $title, $price)
     {
         $data = date('Y-m-d H:i:s').'##'.$url.'##'.$price."\n";
-        return file_put_contents('log.txt', $data, FILE_APPEND);
+        return file_put_contents(PATH.'/log.txt', $data, FILE_APPEND);
     }
 
     /**
