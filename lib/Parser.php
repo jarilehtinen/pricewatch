@@ -50,6 +50,12 @@ class Parser
         $data->price = $this->getPrice($store_id, $html);
         $data->lastPrice = $this->getLastPrice($url);
 
+        $price_increased = $data->price && $data->lastPrice && $data->lastPrice > $data->price ? true : false;
+        $data->priceIncreased = $price_increased;
+
+        $price_decreased = $data->price && $data->lastPrice && $data->lastPrice < $data->price ? true : false;
+        $data->priceDecreased = $price_decreased;
+
         return $data;
     }
 
