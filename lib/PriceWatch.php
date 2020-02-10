@@ -252,11 +252,15 @@ class PriceWatch
             return true;
         }
 
-        // Help
-        if ($command == 'help' || $command == '--help' || $command == '-h') {
-            $help = file_get_contents(PATH.'/usage.txt');
-            echo $help."\n";
+        // List stores
+        if ($command == 'stores') {
+            $this->stores->displayStores();
             return true;
         }
+
+        // Help
+        $help = file_get_contents(PATH.'/usage.txt');
+        echo $help."\n";
+        return true;
     }
 }

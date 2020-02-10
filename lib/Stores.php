@@ -113,4 +113,25 @@ class Stores
         require_once(PATH.'/stores.php');
         return file_put_contents(PATH.'/stores.json', json_encode($data));
     }
+
+    /**
+     * Display stores
+     */
+    public function displayStores()
+    {
+        $stores = $this->getStores();
+
+        if (!$stores) {
+            echo "No stores configured.\n";
+        }
+
+        foreach ($stores as $store) {
+            echo $this->cyan;
+            echo $store->name." ";
+            echo $this->reset;
+            echo "(".str_replace('www.', '', $store->id).")\n";
+        }
+
+        return true;
+    }
 }
