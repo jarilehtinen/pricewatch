@@ -136,10 +136,10 @@ class Parser
      */
     private function getPrice($store_id, $html)
     {
+        // Get price tag regular expression
         $regexp = $this->stores->getStore($store_id)->priceRegExp[0];
 
         if (!$regexp) {
-            echo $this->red."No price tag regular expression(s) set for store ".$store_id.$this->reset."\n";
             return false;
         }
 
