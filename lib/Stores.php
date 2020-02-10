@@ -107,6 +107,30 @@ class Stores
     }
 
     /**
+     * Get longest store name length
+     *
+     * @return integer
+     */
+    public function getLongestStoreNameLength()
+    {
+        $longest_name_length = 0;
+
+        // Get stores
+        $stores = $this->getStores();
+
+        foreach ($stores as $store) {
+            // Calculate store name length
+            $name_length = strlen($store->name);
+
+            if ($name_length > $longest_name_length) {
+                $longest_name_length = $name_length;
+            }
+        }
+
+        return $longest_name_length;
+    }
+
+    /**
      * Build stores
      *
      * @return boolean
