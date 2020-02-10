@@ -1,5 +1,7 @@
 <?php
 
+define('PATH', __DIR__);
+
 require_once('lib/PriceWatch.php');
 require_once('lib/Stores.php');
 require_once('lib/Products.php');
