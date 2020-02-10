@@ -62,8 +62,9 @@ class Stores
             }
 
             $this->stores[$id] = (object)[];
-            $this->stores[$id]->priceRegExp = $store['priceRegExp'];
+            $this->stores[$id]->id = $store['id'];
             $this->stores[$id]->name = $store['name'];
+            $this->stores[$id]->priceRegExp = $store['priceRegExp'];
         }
 
         return $this->stores;
