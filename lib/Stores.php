@@ -10,12 +10,12 @@ class Stores
     private $reset = "\e[0m";
 
     /**
-     * Get store ID
+     * Get store ID from URL
      *
      * @param  string $url Product URL
      * @return string
      */
-    public function getStoreIdFromURL($url)
+    public function getStoreIdFromUrl($url)
     {
         $id = str_replace(array('https://', 'http://'), '', $url);
         $id = explode('/', $id);
