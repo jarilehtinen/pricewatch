@@ -78,13 +78,16 @@ class Display
      */
     public function displayProductTitle($title)
     {
-        $orig_length = strlen($title);
+        $orig_length = mb_strlen($title);
 
         if ($orig_length >= $this->max_title_length) {
             return mb_substr($title, 0, $this->max_title_length - 3).'...';
         }
+
+        $add_spaces = $this->max_title_length - mb_strlen($title);
+        $title = $title.str_repeat(' ', $add_spaces);
     
-        return str_pad($title, $this->max_title_length, ' ');
+        return $title;
     }
 
     /**
