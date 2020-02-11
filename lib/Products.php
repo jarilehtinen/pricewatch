@@ -138,6 +138,10 @@ class Products
     {
         $products = $this->getProducts();
 
+        if (!isset($products[$id1]) || !isset($products[$id2])) {
+            return false;
+        }
+
         $temp = $products[$id1];
         $products[$id1] = $products[$id2];
         $products[$id2] = $temp;
