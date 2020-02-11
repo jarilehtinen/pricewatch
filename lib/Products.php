@@ -132,6 +132,21 @@ class Products
     }
 
     /**
+     * Swap product place
+     */
+    public function swapProductPlace($id1, $id2)
+    {
+        $products = $this->getProducts();
+
+        $temp = $products[$id1];
+        $products[$id1] = $products[$id2];
+        $products[$id2] = $temp;
+
+        // Remove first item
+        return $this->saveProductConfig($products);
+    }
+
+    /**
      * Save product config
      */
     private function saveProductConfig($products)

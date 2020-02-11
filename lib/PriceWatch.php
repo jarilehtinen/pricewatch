@@ -111,6 +111,17 @@ class PriceWatch
             return true;
         }
 
+        // Swap products
+        if ($command == 'swap') {
+            if (!isset($args[2]) || !isset($args[3])) {
+                echo "Usage: pricewatch swap <id> <id>\n";
+                return false;
+            }
+
+            $this->products->swapProductPlace($args[2], $args[3]);
+            return true;
+        }
+
         // Display products
         if ($command == 'products') {
             $this->products->displayProducts();
