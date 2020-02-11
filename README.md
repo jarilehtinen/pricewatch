@@ -44,7 +44,9 @@ pricewatch json
 pricewatch remove <id|url>
 ```
 
-​	Note: *id* is the list item number in ```pricewatch``` results
+<id> is the list item number in ```pricewatch``` results
+
+Note: when removing several products with ID, please note that each product's ID is updated on every product removal
 
 **Swap product places in list**
 
@@ -52,7 +54,7 @@ pricewatch remove <id|url>
 pricewatch swap <id> <id>
 ```
 
-​	Note: *id* is the list item number in ```pricewatch``` results
+<id> is the list item number in ```pricewatch``` results
 
 **Display product info**
 
@@ -60,7 +62,7 @@ pricewatch swap <id> <id>
 pricewatch info <id>
 ```
 
-​	Note: *id* is the list item number in ```pricewatch``` results
+<id> is the list item number in ```pricewatch``` results
 
 **List logged product prices**
 
@@ -68,7 +70,7 @@ pricewatch info <id>
 pricewatch log <id>
 ```
 
-​	Note: *id* is the list item number in ```pricewatch``` results
+<id> is the list item number in ```pricewatch``` results
 
 **List added products**
 
