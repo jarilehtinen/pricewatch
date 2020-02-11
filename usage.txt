@@ -1,7 +1,7 @@
 Usage: pricewatch <command>
 
 where <command> is one of:
-    add, build, help, info, log, products, stores, remove
+    add, build, help, info, log, products, stores, swap, remove
 
 pricewatch                  Displays product prices
 pricewatch add <url>        Add product
@@ -12,3 +12,4 @@ pricewatch log <id>         Display log for product
 pricewatch products         Displays added products
 pricewatch remove <id|url>  Remove product by product ID or URL
 pricewatch stores           Displays supported stores
+pricewatch swap <id> <id>   Swap positions of products
