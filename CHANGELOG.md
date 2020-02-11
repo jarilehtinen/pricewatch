@@ -1,3 +1,8 @@
+# [0.1.5](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.5)
+
+- Fixed title length issue when title contains umlauts
+- Added store: maxgaming.fi
+
 # [0.1.4](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.4)
 
 - Added command for displaying stores ```pricewatch stores````
