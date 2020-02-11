@@ -32,13 +32,27 @@ pricewatch add <url>
 pricewatch
 ```
 
+**Get prices in JSON format**
+
+```shell
+pricewatch json
+```
+
 **Remove product**
 
 ```shell
-pricewatch remove <id>
+pricewatch remove <id|url>
 ```
 
-Note: *id* is the list item number in ```pricewatch``` results
+​	Note: *id* is the list item number in ```pricewatch``` results
+
+**Swap product places in list**
+
+```shell
+pricewatch swap <id> <id>
+```
+
+​	Note: *id* is the list item number in ```pricewatch``` results
 
 **Display product info**
 
@@ -46,7 +60,7 @@ Note: *id* is the list item number in ```pricewatch``` results
 pricewatch info <id>
 ```
 
-Note: *id* is the list item number in ```pricewatch``` results
+​	Note: *id* is the list item number in ```pricewatch``` results
 
 **List logged product prices**
 
@@ -54,7 +68,19 @@ Note: *id* is the list item number in ```pricewatch``` results
 pricewatch log <id>
 ```
 
-Note: *id* is the list item number in ```pricewatch``` results
+​	Note: *id* is the list item number in ```pricewatch``` results
+
+**List added products**
+
+```shell
+pricewatch products
+```
+
+**List supported stores**
+
+```shell
+pricewatch stores
+```
 
 **Build store information**
 
