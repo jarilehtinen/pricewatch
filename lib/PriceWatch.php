@@ -7,6 +7,7 @@ use PriceWatch\Display;
 use PriceWatch\Parser;
 use PriceWatch\Products;
 use PriceWatch\Log;
+use PriceWatch\JSON;
 
 class PriceWatch
 {
@@ -15,6 +16,7 @@ class PriceWatch
     private $parser;
     private $log;
     private $data;
+    private $json;
 
     private $red = "\e[0;31m";
     private $reset = "\e[0m";
@@ -29,6 +31,7 @@ class PriceWatch
         $this->parser = new Parser;
         $this->display = new Display;
         $this->log = new Log;
+        $this->json = new JSON;
     }
 
     /**
@@ -45,7 +48,7 @@ class PriceWatch
 
         foreach ($products as $id => $product) {
             // Get data
-            $data = $this->parser->getData($product->url);
+            $data = $this->parser->getData($id, $product->url);
 
             // Store not configured
             if (!$data->store) {
@@ -88,6 +91,12 @@ class PriceWatch
     public function runCommand($args)
     {
         $command = $args[1];
+
+        // JSON
+        if ($command == 'json') {
+            $this->json->outputJSON();
+            return true;
+        }
 
         // Add product
         if ($command == 'add') {
