@@ -25,9 +25,10 @@ class Parser
     /**
      * Get data
      *
-     * @param string $url Product URL
+     * @param integer $id  Product ID
+     * @param string  $url Product URL
      */
-    public function getData($url)
+    public function getData($id, $url)
     {
         // Get store
         $store = $this->stores->getStoreByProductUrl($url);
@@ -44,6 +45,8 @@ class Parser
         // Product
         if ($data->html) {
             $data->product = (object)[];
+            $data->product->url = $url;
+            $data->product->id = $id;
             $data->product->title = $this->getTitle($data->html);
             $data->product->price = $this->getPrice($data->store->id, $data->html);
             $data->product->lastPrice = $this->getLastPrice($url);
