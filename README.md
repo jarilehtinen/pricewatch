@@ -74,6 +74,7 @@ pricewatch help
 - gigantti.fi
 - jimms.fi
 - konsolinet.fi
+- maxgaming.fi
 - multitronic.fi
 - pelaajashop.fi
 - power.fi

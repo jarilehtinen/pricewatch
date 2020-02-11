@@ -59,4 +59,9 @@ $data = array(
         'name' => 'Pelaaja Shop',
         'priceRegExp' => '/<dd class="Price">(.*?)<\/dd>/is'
     ),
+    array(
+        'id' => 'www.maxgaming.fi',
+        'name' => 'Max Gaming',
+        'priceRegExp' => '/<div class="productInfo">.*?<div class="price">(.*?)<\/div>/is'
+    ),
 );
