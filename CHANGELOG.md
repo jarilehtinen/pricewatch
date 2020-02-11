@@ -1,3 +1,7 @@
+# [0.1.6](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.6)
+
+- Added command for swapping products: ```pricewatch swap <id> <id>```
+
 # [0.1.5](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.5)
 
 - Fixed title length issue when title contains umlauts
@@ -5,8 +9,8 @@
 
 # [0.1.4](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.4)
 
-- Added command for displaying stores ```pricewatch stores````
-- Added command for displaying products ```pricewatch products```
+- Added command for displaying stores: ```pricewatch stores````
+- Added command for displaying products: ```pricewatch products```
 
 # [0.1.3](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.3)
 
