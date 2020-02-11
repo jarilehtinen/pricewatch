@@ -1,3 +1,7 @@
+# [0.1.7](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.7)
+
+- Added command for displaying product prices in JSON format: ```pricewatch json```
+
 # [0.1.6](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.6)
 
 - Added command for swapping products: ```pricewatch swap <id> <id>```
