@@ -36,7 +36,6 @@ class JSON
 
         // Display products
         $products = $this->products->getProducts();
-        $total_products = count($products);
 
         $result = [];
 
