@@ -1,3 +1,7 @@
+# [0.1.9](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.9)
+
+- Code cleanup
+
 # [0.1.8](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.8)
 
 - Changed JSON structure (when running ```pricewatch json```)
