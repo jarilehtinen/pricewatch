@@ -52,19 +52,23 @@ class JSON
             // Get data
             $data = $this->parser->getData($id, $product->url);
 
-            $result[] = array(
-                'store' => $data->store->name,
-                'storeId' => $data->store->id,
-                'productId' => $data->product->id,
-                'product' => $data->product->title,
-                'url' => $data->product->url,
-                'price' => (double) number_format($data->product->price, 2, '.', ''),
-                'lastPrice' => $data->product->lastPrice
-                    ? (double) number_format($data->product->lastPrice, 2, '.', '')
-                    : false,
-                'priceIncreased' => $data->product->priceIncreased ? 1 : 0,
-                'priceDecreased' => $data->product->priceDecreased ? 1 : 0
-            );
+            $result[] = [
+                'store' => [
+                    'name' => $data->store->name,
+                    'id' => $data->store->id
+                ],
+                'product' => [
+                    'id' => $data->product->id,
+                    'title' => $data->product->title,
+                    'url' => $data->product->url,
+                    'price' => (double) number_format($data->product->price, 2, '.', ''),
+                    'lastPrice' => $data->product->lastPrice
+                        ? (double) number_format($data->product->lastPrice, 2, '.', '')
+                        : false,
+                    'priceIncreased' => $data->product->priceIncreased ? true : false,
+                    'priceDecreased' => $data->product->priceDecreased ? true : false
+                ]
+            ];
 
             $this->log->logPrice($product->url, $data->product->title, $data->product->price);
         }
