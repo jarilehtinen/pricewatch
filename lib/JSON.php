@@ -31,9 +31,6 @@ class JSON
      */
     public function outputJSON()
     {
-        // Send header
-        header('Content-Type: application/json');
-
         // Get stores
         $stores = $this->stores->getStores();
 
@@ -67,6 +64,9 @@ class JSON
 
             $this->log->logPrice($product->url, $data->product->title, $data->product->price);
         }
+
+        // Send header
+        header('Content-Type: application/json');
 
         if (count($result) > 0) {
             echo json_encode($result);
