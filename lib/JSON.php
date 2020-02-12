@@ -3,7 +3,6 @@
 namespace PriceWatch;
 
 use PriceWatch\Stores;
-use PriceWatch\Display;
 use PriceWatch\Parser;
 use PriceWatch\Products;
 use PriceWatch\Log;
@@ -14,10 +13,6 @@ class JSON
     private $products;
     private $parser;
     private $log;
-    private $data;
-
-    private $red = "\e[0;31m";
-    private $reset = "\e[0m";
 
     /**
      * Construct
