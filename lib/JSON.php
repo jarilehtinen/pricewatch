@@ -34,9 +34,20 @@ class JSON
         // Get stores
         $stores = $this->stores->getStores();
 
+        if (!$stores) {
+            echo json_encode(['error' => 'noStores']);
+            return false;
+        }
+
         // Display products
         $products = $this->products->getProducts();
 
+        if (!$products) {
+            echo json_encode(['error' => 'noProducts']);
+            return false;
+        }
+
+        // Gather results
         $result = [];
 
         foreach ($products as $id => $product) {
