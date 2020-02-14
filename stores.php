@@ -25,7 +25,7 @@ $data = array(
     array(
         'id' => 'www.jimms.fi',
         'name' => 'Jimm\'s',
-        'priceRegExp' => '/<meta property="product:price:amount" content="(.*?)">/is'
+        'priceRegExp' => '/<meta property="product:price:amount" content="([0-9.,]+?)">/is'
     ),
     array(
         'id' => 'www.multitronic.fi',
