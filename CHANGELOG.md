@@ -1,6 +1,6 @@
 # [0.2.0](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.0)
 
-- Updated regexes for Verkkokauppa.com
+- Updated regexes for Verkkokauppa.com, Power.fi and Jimms.fi
 
 # [0.1.9](https://github.com/jarilehtinen/pricewatch/releases/tag/0.1.9)
 
