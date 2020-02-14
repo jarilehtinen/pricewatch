@@ -4,7 +4,10 @@ $data = array(
     array(
         'id' => 'www.verkkokauppa.com',
         'name' => 'Verkkokauppa.com',
-        'priceRegExp' => '/<meta data-rh="true" property="product:price:amount" content="(.*?)"\/>/is'
+        'priceRegExp' => array(
+            '/<meta data-rh="true" property="product:price:amount" content="([0-9.]+?)"\/>/is',
+            '/<meta data-rh="true" content="([0-9.]+?)" property="product:price:amount"\/>/is'
+        )
     ),
     array(
         'id' => 'www.gigantti.fi',
