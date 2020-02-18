@@ -1,3 +1,7 @@
+# [0.2.1](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.1)
+
+- Added stores: audiokauppa.fi, hifihuone.fi and hifistudio.fi
+
 # [0.2.0](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.0)
 
 - Updated regexes for Verkkokauppa.com, Power.fi and Jimms.fi
