@@ -70,4 +70,19 @@ $data = array(
         'name' => 'Max Gaming',
         'priceRegExp' => '/<div class="productInfo">.*?<div class="price">(.*?)<\/div>/is'
     ),
+    array(
+        'id' => 'www.hifistudio.fi',
+        'name' => 'HifiStudio',
+        'priceRegExp' => '/<meta property="product:price:amount" content="([0-9.,]+?)" \/>/is'
+    ),
+    array(
+        'id' => 'www.audiokauppa.fi',
+        'name' => 'Audiokauppa.fi',
+        'priceRegExp' => '/<span itemprop=\'price\' content=\'.*\'>([0-9.,]+?)<\/span>/is'
+    ),
+    array(
+        'id' => 'www.hifihuone.fi',
+        'name' => 'Hifihuone',
+        'priceRegExp' => '/<span class="woocommerce-Price-amount amount">([0-9.,]+?)<span/is'
+    ),
 );
