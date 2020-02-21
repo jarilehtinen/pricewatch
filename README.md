@@ -98,8 +98,11 @@ pricewatch help
 
 ## Supported stores
 
+- audiokauppa.fi
 - discshop.fi
 - gigantti.fi
+- hifihuone.fi
+- hifistudio.fi
 - jimms.fi
 - konsolinet.fi
 - maxgaming.fi
