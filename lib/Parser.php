@@ -78,7 +78,7 @@ class Parser
             return false;
         }
 
-        if ($last_price > $price) {
+        if ($last_price < $price) {
             return true;
         }
 
@@ -102,7 +102,7 @@ class Parser
             return false;
         }
 
-        if ($last_price < $price) {
+        if ($last_price > $price) {
             return true;
         }
 
