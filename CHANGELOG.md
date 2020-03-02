@@ -1,3 +1,7 @@
+# [0.2.2](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.2)
+
+- Fixed price increase and decrease (don't ask)
+
 # [0.2.1](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.1)
 
 - Added stores: audiokauppa.fi, hifihuone.fi and hifistudio.fi
