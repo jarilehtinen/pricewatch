@@ -119,6 +119,10 @@ class Parser
     {
         $data = @file_get_contents($url);
 
+        if (!$data) {
+            return false;
+        }
+
         // Sanitize HTML for better regex compatibility
         $data = str_replace("\r", '', $data);
         $data = str_replace("\n", '', $data);
