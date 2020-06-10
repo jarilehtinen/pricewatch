@@ -117,7 +117,7 @@ class Parser
      */
     private function getHTML($url)
     {
-        $data = file_get_contents($url);
+        $data = @file_get_contents($url);
 
         // Sanitize HTML for better regex compatibility
         $data = str_replace("\r", '', $data);
