@@ -50,6 +50,9 @@ class PriceWatch
             // Get data
             $data = $this->parser->getData($id, $product->url);
 
+            // Product ID
+            echo $this->display->displayProductId($id, $total_products).'  ';
+
             // Store not configured
             if (!$data->store) {
                 $store_id = $this->stores->getStoreIdFromUrl($product->url);
@@ -63,9 +66,6 @@ class PriceWatch
                 echo $this->red.'Could not get product data for '.$product->url.$this->reset."\n";
                 continue;
             }
-
-            // Product ID
-            echo $this->display->displayProductId($id, $total_products).'  ';
 
             // Store name
             echo $this->display->displayStoreName($data->store->name).'  ';
@@ -139,7 +139,7 @@ class PriceWatch
 
             // Display products after swapping
             $this->products->displayProducts();
-            
+
             return true;
         }
 
