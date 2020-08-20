@@ -1,3 +1,20 @@
+# [0.2.6](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.6)
+
+- Now uses cURL instead of file_get_contents()
+- Updated price tags for Gigantti.fi
+
+# [0.2.5](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.5)
+
+- Now displays product ID when error is thrown while getting product data
+
+# [0.2.4](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.4)
+
+- Now displays product list after adding, removing or swapping products
+
+# [0.2.3](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.3)
+
+- Fixed issue where method didn't return false when no data got
+
 # [0.2.2](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.2)
 
 - Fixed price increase and decrease (don't ask)
