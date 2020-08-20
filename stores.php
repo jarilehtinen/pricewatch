@@ -12,7 +12,10 @@ $data = array(
     array(
         'id' => 'www.gigantti.fi',
         'name' => 'Gigantti',
-        'priceRegExp' => '/<div class="product-price-container"><span>(.*?)<\/span><\/div>/is'
+        'priceRegExp' => array(
+            '/<div class="product-price-container"><span>(.*?)<\/span><\/div>/is',
+            '/<meta itemprop="price" content="([0-9.,]+?)">/'
+        )
     ),
     array(
         'id' => 'www.power.fi',
