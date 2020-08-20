@@ -106,6 +106,10 @@ class PriceWatch
             }
 
             $this->products->addProduct($args[2]);
+
+            // Display products after adding
+            $this->products->displayProducts();
+
             return true;
         }
 
@@ -117,6 +121,10 @@ class PriceWatch
             }
 
             $this->products->removeProduct($args[2]);
+
+            // Display products after removing
+            $this->products->displayProducts();
+
             return true;
         }
 
@@ -128,6 +136,10 @@ class PriceWatch
             }
 
             $this->products->swapProductPlace($args[2], $args[3]);
+
+            // Display products after swapping
+            $this->products->displayProducts();
+            
             return true;
         }
 
