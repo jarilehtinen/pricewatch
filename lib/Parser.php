@@ -117,7 +117,10 @@ class Parser
      */
     private function getHTML($url)
     {
-        $data = @file_get_contents($url);
+        // Get data from URL
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $data = curl_exec($ch);
 
         if (!$data) {
             return false;
