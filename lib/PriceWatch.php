@@ -56,7 +56,6 @@ class PriceWatch
             // Store not configured
             if (!$data->store) {
                 $store_id = $this->stores->getStoreIdFromUrl($product->url);
-                echo $this->display->displayProductId($i, $total_products).'  ';
                 echo $this->red.'Warning: store '.$store_id.' not set in stores.json '.$this->reset."\n";
                 continue;
             }
