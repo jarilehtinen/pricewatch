@@ -61,8 +61,8 @@ class PriceWatch
                 continue;
             }
 
+            // Product data not found
             if (!$data->product) {
-                // Could not get product data for URL
                 echo $this->red.'Could not get product data for '.$product->url.$this->reset."\n";
                 continue;
             }
