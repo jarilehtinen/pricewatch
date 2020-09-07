@@ -1,3 +1,7 @@
+# [0.2.7](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.7)
+
+- Added new store: Finnish Design Shop (finnishdesignshop.fi)
+
 # [0.2.6](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.6)
 
 - Now uses cURL instead of file_get_contents()

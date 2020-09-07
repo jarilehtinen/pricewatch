@@ -88,4 +88,9 @@ $data = array(
         'name' => 'Hifihuone',
         'priceRegExp' => '/<span class="woocommerce-Price-amount amount">([0-9.,]+?)<span/is'
     ),
+    array(
+        'id' => 'www.finnishdesignshop.fi',
+        'name' => 'Finnish Design Shop',
+        'priceRegExp' => '/<meta itemprop="price" content="([0-9.]+?)">/is'
+    ),
 );
