@@ -42,7 +42,7 @@ class Display
         $id = '#'.($id);
         $id = str_pad($id, $max_id_length, ' ', STR_PAD_LEFT);
 
-        return $this->yellow.$this->bold.$id.$this->reset;
+        return $this->yellow_bold.$id.$this->reset;
     }
 
     /**
