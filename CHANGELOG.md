@@ -1,3 +1,7 @@
+# [0.2.8](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.8)
+
+- Bug fixes
+
 # [0.2.7](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.7)
 
 - Added new store: Finnish Design Shop (finnishdesignshop.fi)
