@@ -54,14 +54,14 @@ class PriceWatch
             echo $this->display->displayProductId($id, $total_products).'  ';
 
             // Store not configured
-            if (!$data->store) {
+            if (!isset($data->store) || !$data->store) {
                 $store_id = $this->stores->getStoreIdFromUrl($product->url);
                 echo $this->red.'Warning: store '.$store_id.' not set in stores.json '.$this->reset."\n";
                 continue;
             }
 
             // Product data not found
-            if (!$data->product) {
+            if (!isset($data->product) || !$data->product) {
                 echo $this->red.'Could not get product data for '.$product->url.$this->reset."\n";
                 continue;
             }
