@@ -73,7 +73,10 @@ class PriceWatch
             echo $this->display->displayProductTitle($data->product->title).'  ';
 
             // Last price
-            echo $this->display->displayPrice($data);
+            echo $this->display->displayPrice($data).'  ';
+
+            // Availability
+            echo $this->display->displayAvailability($data->product->availability);
 
             echo "\n";
 

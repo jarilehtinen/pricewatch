@@ -68,6 +68,10 @@ class Stores
             $this->stores[$id]->id = $store['id'];
             $this->stores[$id]->name = $store['name'];
             $this->stores[$id]->priceRegExp = $store['priceRegExp'];
+
+            if (isset($store['availabilityRegExp'])) {
+                $this->stores[$id]->availabilityRegExp = $store['availabilityRegExp'];
+            }
         }
 
         return $this->stores;

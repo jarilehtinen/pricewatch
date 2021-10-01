@@ -50,6 +50,7 @@ class Parser
             $data->product->title = $this->getTitle($data->html);
             $data->product->price = $this->getPrice($data->store->id, $data->html);
             $data->product->lastPrice = $this->getLastPrice($url);
+            $data->product->availability = $this->getAvailability($data->store->id, $data->html);
 
             $price_increased = $this->priceIncreased($data->product->price, $data->product->lastPrice) ? true : false;
             $data->product->priceIncreased = $price_increased;
@@ -229,5 +230,67 @@ class Parser
         $last_log_entry = end($log[$url]);
 
         return $last_log_entry['price'];
+    }
+
+    /**
+     * Get availability
+     */
+    private function getAvailability($store_id, $html)
+    {
+        // Get availability tag regular expression
+        $regex = isset($this->stores->getStore($store_id)->availabilityRegExp)
+            ? $this->stores->getStore($store_id)->availabilityRegExp
+            : false;
+
+        if (!$regex) {
+            return false;
+        }
+
+        // Get availability match
+        $availability = preg_match($regex[0], $html, $matches);
+
+        if (isset($matches[1])) {
+            $availability = $matches[1];
+        } elseif (isset($matches[0])) {
+            $availability = $matches[0];
+        }
+
+        // Specific values set for availability
+        if (isset($regex[1])) {
+            // Boolean value
+            if (is_bool($regex[1])) {
+                // First value set to true
+                if ($regex[1]) {
+                    return $availability ? 'yes' : 'no';
+                }
+
+                // First value set to false
+                if (!$regex[1]) {
+                    return $availability ? 'no' : 'yes';
+                }
+
+                return false;
+            }
+
+            // Specific string
+            if (isset($regex[2])) {
+                $available = $regex[1];
+                $not_available = $regex[2];
+
+                if ($availability == $available) {
+                    return 'yes';
+                }
+
+                if ($availability == $not_available) {
+                    return 'no';
+                }
+            }
+        }
+
+        if ($availability) {
+            return 'yes';
+        }
+
+        return false;
     }
 }
