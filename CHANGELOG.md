@@ -1,3 +1,7 @@
+# [0.3.1](https://github.com/jarilehtinen/pricewatch/releases/tag/0.3.1)
+
+- Learning to update changelog and readme on every release (also could properly learn to use git, but nah)
+
 # [0.3.0](https://github.com/jarilehtinen/pricewatch/releases/tag/0.3.0)
 
 - Added support for getting availability (in stock / not in stock)
