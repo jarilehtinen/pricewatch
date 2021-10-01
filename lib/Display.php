@@ -148,6 +148,30 @@ class Display
     }
 
     /**
+     * Display availability
+     *
+     * @param string $availability Availability (yes/no/false)
+     */
+    public function displayAvailability($availability)
+    {
+        if ($availability == 'yes') {
+            $output = $this->green_bold;
+            $output .= '✅';
+            $output .= $this->reset;
+
+            return $output;
+        }
+
+        if ($availability == 'no') {
+            $output = $this->red_bold;
+            $output .= '❌';
+            $output .= $this->reset;
+
+            return $output;
+        }
+    }
+
+    /**
      * Longest store name length
      */
     private function longestStoreNameLength()
