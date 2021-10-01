@@ -1,3 +1,8 @@
+# [0.3.0](https://github.com/jarilehtinen/pricewatch/releases/tag/0.3.0)
+
+- Added support for getting availability (in stock / not in stock)
+- Removed Power.fi, since their HTML cannot be read with human (or computer) eyes
+
 # [0.2.8](https://github.com/jarilehtinen/pricewatch/releases/tag/0.2.8)
 
 - Bug fixes
