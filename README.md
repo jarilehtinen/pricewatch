@@ -108,7 +108,6 @@ pricewatch help
 - maxgaming.fi
 - multitronic.fi
 - pelaajashop.fi
-- power.fi
 - proshop.fi
 - puolenkuunpelit.com
 - verkkokauppa.com
