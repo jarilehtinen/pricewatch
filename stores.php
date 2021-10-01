@@ -7,6 +7,11 @@ $data = array(
         'priceRegExp' => array(
             '/<meta data-rh="true" property="product:price:amount" content="([0-9.]+?)"\/>/is',
             '/<meta data-rh="true" content="([0-9.]+?)" property="product:price:amount"\/>/is'
+        ),
+        'availabilityRegExp' => array(
+            '/<meta data-rh="true" content="([a-z ]+?)" property="product:availability"\/>/is',
+            'in stock',
+            'out of stock'
         )
     ),
     array(
@@ -14,15 +19,11 @@ $data = array(
         'name' => 'Gigantti',
         'priceRegExp' => array(
             '/<div class="product-price-container"><span>(.*?)<\/span><\/div>/is',
-            '/<meta itemprop="price" content="([0-9.,]+?)">/'
-        )
-    ),
-    array(
-        'id' => 'www.power.fi',
-        'name' => 'Power',
-        'priceRegExp' => array(
-            '/<meta content="([0-9.,]+?)" property="product:price:amount" \/>/is',
-            '/<meta property="product:price:amount" content="([0-9.,]+?)" \/>/is'
+        ),
+        'availabilityRegExp' => array(
+            '/Tuote ei saatavilla/is',
+            false,
+            true
         )
     ),
     array(
@@ -43,7 +44,12 @@ $data = array(
     array(
         'id' => 'www.vpd.fi',
         'name' => 'VPD',
-        'priceRegExp' => '/<span class="price">(.*?)<\/span>/is'
+        'priceRegExp' => '/<span class="price">(.*?)<\/span>/is',
+        'availabilityRegExp' => array(
+            '/<span class="stock-status">(.*?) kpl<\/span>/is',
+            true,
+            false
+        )
     ),
     array(
         'id' => 'www.discshop.fi',
@@ -56,12 +62,22 @@ $data = array(
         'priceRegExp' => array(
             '/<form name="cart_quantity".*?>.*?<b class="commonPriceSpecial"><s>.*?<\/s> &nbsp;&nbsp;(.*?)<\/b>/is',
             '/<form name="cart_quantity".*?>.*?<b class="commonPrice">(.*?)<\/b>/is'
+        ),
+        'availabilityRegExp' => array(
+            '/Tuotepainos loppu/is',
+            false,
+            true
         )
     ),
     array(
         'id' => 'www.konsolinet.fi',
         'name' => 'Konsolinet',
-        'priceRegExp' => '/<dd class="Price">(.*?)<\/dd>/is'
+        'priceRegExp' => '/<dd class="Price">(.*?)<\/dd>/is',
+        'availabilityRegExp' => array(
+            '/Loppunut/is',
+            false,
+            true
+        )
     ),
     array(
         'id' => 'www.pelaajashop.fi',
