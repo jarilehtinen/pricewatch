@@ -109,4 +109,9 @@ $data = array(
         'name' => 'Finnish Design Shop',
         'priceRegExp' => '/<meta itemprop="price" content="([0-9.]+?)">/is'
     ),
+    array(
+        'id' => 'nettiverstas.fi',
+        'name' => 'Nettiverstas',
+        'priceRegExp' => '/value: ([0-9.]+?),/is'
+    ),
 );
