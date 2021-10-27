@@ -181,7 +181,7 @@ class Products
         $total_products = count($products);
 
         foreach ($products as $product) {
-            $store = $this->stores->getStoreByProductUrl($product->url);
+            $store = (object) $this->stores->getStoreByProductUrl($product->url);
 
             echo $this->yellow;
             echo $this->display->displayProductId($product->id, $total_products)."  ";
@@ -209,7 +209,7 @@ class Products
      */
     public function displayProduct($id)
     {
-        $product = $this->getProduct($id);
+        $product = (object) $this->getProduct($id);
         
         echo $this->cyan;
         echo 'URL: ';
