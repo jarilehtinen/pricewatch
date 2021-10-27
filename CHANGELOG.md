@@ -1,3 +1,8 @@
+# [0.3.2](https://github.com/jarilehtinen/pricewatch/releases/tag/0.3.2)
+
+- Bug fixes
+- Added support for Nettiverstas.fi
+
 # [0.3.1](https://github.com/jarilehtinen/pricewatch/releases/tag/0.3.1)
 
 - Learning to update changelog and readme on every release (also could properly learn to use git, but nah)
