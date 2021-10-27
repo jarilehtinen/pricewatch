@@ -42,6 +42,10 @@ class Parser
         $data->store = (object)[];
         $data->store = $this->stores->getStoreByProductUrl($url);
 
+        if (!$data->store) {
+            return false;
+        }
+
         // Product
         if ($data->html) {
             $data->product = (object)[];
