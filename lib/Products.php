@@ -187,7 +187,13 @@ class Products
             echo $this->display->displayProductId($product->id, $total_products)."  ";
 
             echo $this->cyan;
-            echo $this->display->displayStoreName($store->name)."  ";
+
+            $store_name = isset($store->name) ? $store->name : 'Unidentified store';
+
+            if (isset($store->name)) {
+                echo $this->display->displayStoreName($store_name)."  ";
+            }
+
             echo $this->reset;
             echo $product->url;
             echo "\n";
